@@ -9,6 +9,17 @@ def simple_stat(ab_column, resulting_parameter):
 	items = list(ab_par.items())
 	st.write(items)
 
+
+def bootstrap_parameter(ab_column, resulting_parameter, iterations):
+	boot_1d = []
+	iterations = iterations
+	for i in range(iterations):
+	    boot_mean = df.sample(frac=1, replace=True).groupby(ab_column)[resulting_parameter].mean()
+	    boot_1d.append(boot_mean)
+	    
+	boot_1d = pd.DataFrame(boot_1d)
+	boot_1d.plot(kind='kde')
+
 if file:
 	df = pd.read_csv(file)
 	st.write(df.head())
@@ -19,5 +30,8 @@ if file:
 	resulting_parameter = st.sidebar.selectbox("Resulting column", df.columns)
 	st.write(ab_column)
 	simple_stat(ab_column, resulting_parameter)
+	bootstrap_parameter(ab_column, resulting_parameter, 300)
+
+
 
 
