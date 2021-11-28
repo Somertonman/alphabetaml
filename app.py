@@ -18,7 +18,7 @@ def bootstrap_parameter(ab_column, resulting_parameter, iterations):
 	    boot_1d.append(boot_mean)
 	    
 	boot_1d = pd.DataFrame(boot_1d)
-	boot_1d.plot(kind='kde')
+	boot_1d.plot()
 
 if file:
 	df = pd.read_csv(file)
