@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import matplotlib.pyplot as plt
 
 
 file = st.file_uploader("Please upload an image file or...", type=["csv", "txt"])
@@ -17,14 +18,10 @@ def bootstrap_parameter(ab_column, resulting_parameter, iterations):
 	    boot_1d.append(boot_mean)
 	    
 	boot_1d = pd.DataFrame(boot_1d)
-	st.vega_lite_chart(boot_1d, {
+	boot_1d.plot(kind='kde')
 
-		'mark': 'area',
-		'transform' : [{'density': ab_column, 'groupby': [resulting_parameter]}]
-		}
 
-		)
-
+	
 if file:
 	df = pd.read_csv(file)
 	st.write(df.head())
