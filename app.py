@@ -4,6 +4,11 @@ import pandas as pd
 
 file = st.file_uploader("Please upload an image file or...", type=["csv", "txt"])
 
+def simple_stat(ab_column, resulting_parameter):
+	ab_par = df.groupby(ab_column)[resulting_parameter].sum()/df.groupby(ab_column)[resulting_parameter].count()*100
+	items = list(ab_par.items())
+	st.write(items)
+
 if file:
 	df = pd.read_csv(file)
 	st.write(df.head())
@@ -16,7 +21,3 @@ if file:
 	simple_stat(ab_column, resulting_parameter)
 
 
-def simple_stat(ab_column, resulting_parameter):
-	ab_par = df.groupby(ab_column)[resulting_parameter].sum()/df.groupby(ab_column)[resulting_parameter].count()*100
-	items = list(ab_par.items())
-	st.write(items)
