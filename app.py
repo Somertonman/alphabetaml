@@ -10,4 +10,5 @@ if file:
 
 
 if file:
-	ab_column = st.sidebar.selectbox("Resulting test/control group", df.columns)
+	ab_column = st.sidebar.selectbox("Test/control group selector", df.columns)
+	resulting_parameter = st.sidebar.selectbox("Resulting column", df.columns)
