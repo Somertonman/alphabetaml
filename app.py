@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import seaborn as sns
+from bokeh.plotting import figure
 import matplotlib.pyplot as plt
 
 
