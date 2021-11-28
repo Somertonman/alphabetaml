@@ -17,7 +17,13 @@ def bootstrap_parameter(ab_column, resulting_parameter, iterations):
 	    boot_1d.append(boot_mean)
 	    
 	boot_1d = pd.DataFrame(boot_1d)
-	boot_1d.plot()
+	st.vega_lite_chart(boot_1d, {
+
+		'mark': 'area',
+		'transform' : ['density': 'version']
+		}
+
+		)
 
 if file:
 	df = pd.read_csv(file)
