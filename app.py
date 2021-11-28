@@ -21,7 +21,7 @@ def bootstrap_parameter(ab_column, resulting_parameter, iterations):
 	boot_1d = pd.DataFrame(boot_1d)
 
 	fig = plt.figure(figsize=(10, 4))
-	sns.lineplot(x = "gate_30", y = "gate_40", data = boot_1d)
+	#boot_1d.plot(kind='kde')
 	st.pyplot(fig)
 
 
