@@ -18,8 +18,8 @@ def bootstrap_parameter(ab_column, resulting_parameter, iterations):
 	    boot_1d.append(boot_mean)
 	    
 	boot_1d = pd.DataFrame(boot_1d)
-	boot_1d_sns = sns.load_dataset(boot_1d)
-	fig = sns(boot_1d_sns)
+
+	fig = sns.kdeplot(boot_1d_sns.version)
 	st.pyplot(fig)
 
 
