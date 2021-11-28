@@ -40,7 +40,7 @@ if file:
 if file:
 	ab_column = st.sidebar.selectbox("Test/control group selector", df.columns)
 	resulting_parameter = st.sidebar.selectbox("Resulting column", df.columns)
-	st.sidebar.button('Run', on_click = run_calc):
+	st.sidebar.button('Run', on_click = run_calc()):
 	
 	
 
