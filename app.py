@@ -20,7 +20,7 @@ def bootstrap_parameter(ab_column, resulting_parameter, iterations):
 	st.vega_lite_chart(boot_1d, {
 
 		'mark': 'area',
-		'transform' : [{'density': 'version'}]
+		'transform' : [{'density': ab_column, 'groupby': [resulting_parameter]}]
 		}
 
 		)
