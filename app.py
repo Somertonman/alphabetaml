@@ -19,7 +19,7 @@ def bootstrap_parameter(ab_column, resulting_parameter, iterations):
 	    
 	boot_1d = pd.DataFrame(boot_1d)
 
-	fig = sns.kdeplot(boot_1d_sns.version)
+	fig = sns.kdeplot(boot_1d.version)
 	st.pyplot(fig)
 
 
