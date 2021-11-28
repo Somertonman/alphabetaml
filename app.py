@@ -12,3 +12,9 @@ if file:
 if file:
 	ab_column = st.sidebar.selectbox("Test/control group selector", df.columns)
 	resulting_parameter = st.sidebar.selectbox("Resulting column", df.columns)
+	simple_stat(ab_column, resulting_parameter)
+
+
+def simple_stat(ab_column, resulting_parameter):
+	ab_par = df.groupby(ab_column)[resulting_parameter].sum()/df.groupby(ab_column)[resulting_parameter].count()*100
+	st.write(ab_par)
