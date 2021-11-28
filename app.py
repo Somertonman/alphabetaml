@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import seaborn as sns
+import matplotlib.pyplot as plt
 
 
 file = st.file_uploader("Please upload an image file or...", type=["csv", "txt"])
@@ -19,7 +20,8 @@ def bootstrap_parameter(ab_column, resulting_parameter, iterations):
 	    
 	boot_1d = pd.DataFrame(boot_1d)
 
-	fig = sns.kdeplot(boot_1d.version)
+	fig = plt.figure(figsize=(10, 4))
+	sns.lineplot(x = "gate_30", y = "gate_40", data = boot_1d)
 	st.pyplot(fig)
 
 
