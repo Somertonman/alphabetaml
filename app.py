@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
+import seaborn as sns
 
 
 file = st.file_uploader("Please upload an image file or...", type=["csv", "txt"])
@@ -18,7 +18,11 @@ def bootstrap_parameter(ab_column, resulting_parameter, iterations):
 	    boot_1d.append(boot_mean)
 	    
 	boot_1d = pd.DataFrame(boot_1d)
-	boot_1d.plot(kind='kde')
+	boot_1d_sns = sns.load_dataset(boot_1d)
+	fig = sns.pairplot(boot_1d_sns)
+	st.pyplot(fig)
+
+
 
 
 	
