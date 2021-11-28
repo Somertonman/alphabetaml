@@ -12,7 +12,6 @@ def simple_stat(ab_column, resulting_parameter):
 
 def bootstrap_parameter(ab_column, resulting_parameter, iterations):
 	boot_1d = []
-	iterations = iterations
 	for i in range(iterations):
 	    boot_mean = df.sample(frac=1, replace=True).groupby(ab_column)[resulting_parameter].mean()
 	    boot_1d.append(boot_mean)
