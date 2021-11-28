@@ -25,6 +25,10 @@ def bootstrap_parameter(ab_column, resulting_parameter, iterations):
 	st.pyplot(fig)
 
 
+def run_calc():
+	simple_stat(ab_column, resulting_parameter)
+	bootstrap_parameter(ab_column, resulting_parameter, 300)
+
 
 
 	
@@ -36,9 +40,9 @@ if file:
 if file:
 	ab_column = st.sidebar.selectbox("Test/control group selector", df.columns)
 	resulting_parameter = st.sidebar.selectbox("Resulting column", df.columns)
-	st.write(ab_column)
-	simple_stat(ab_column, resulting_parameter)
-	bootstrap_parameter(ab_column, resulting_parameter, 300)
+	st.sidebar.button('Run', on_click = run_calc):
+	
+	
 
 
 
