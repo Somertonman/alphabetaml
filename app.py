@@ -12,6 +12,7 @@ if file:
 if file:
 	ab_column = st.sidebar.selectbox("Test/control group selector", df.columns)
 	resulting_parameter = st.sidebar.selectbox("Resulting column", df.columns)
+	st.write(ab_column)
 	simple_stat(ab_column, resulting_parameter)
 
 
