@@ -14,15 +14,17 @@ def simple_stat(ab_column, resulting_parameter):
 
 
 def bootstrap_parameter(ab_column, resulting_parameter, iterations):
-	boot_1d = []
+	boot = []
 	for i in range(iterations):
 	    boot_mean = df.sample(frac=1, replace=True).groupby(ab_column)[resulting_parameter].mean()
-	    boot_1d.append(boot_mean)
+	    boot.append(boot_mean)
 	    
-	boot_1d = pd.DataFrame(boot_1d)
+	boot = pd.DataFrame(boot)
 
 	fig = plt.figure(figsize=(10, 4))
-	sns.kdeplot(data=boot_1d)
+	sns.set_style("darkgrid", {"axes.facecolor": ".9"})
+	sns.set_context("notebook")
+	sns.kdeplot(data=boot)
 	st.pyplot(fig)
 
 
