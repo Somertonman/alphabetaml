@@ -5,8 +5,9 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 
+ 
 file_selection = st.radio("Please choose csv file OR use demo file", ('demo','file'))
-
+file_selection = 'file'
 if file_selection == 'file':
 	file = st.file_uploader("Please upload an image file or...", type=["csv", "txt"])
 elif file_selection == 'demo':
