@@ -10,6 +10,8 @@ file_selection = st.radio("Please choose csv file OR use demo file", ('demo','fi
 if file_selection == 'file':
 	file = st.file_uploader("Please upload an image file or...", type=["csv", "txt"])
 elif file_selection == 'demo':
+	st.write('cookie_cats.txt')
+	st.write('Test/control group column - version and metric - retention_1 or retention_7 and press RUN')
 	file = open('cookie_cats.txt', 'r')
 
 def simple_stat(ab_column, resulting_parameter):
