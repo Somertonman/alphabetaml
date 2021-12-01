@@ -9,6 +9,8 @@ file_selection = st.radio("Please choose csv file OR use demo file", ('demo','fi
 
 if file_selection == 'file':
 	file = st.file_uploader("Please upload an image file or...", type=["csv", "txt"])
+elif file_selection == 'demo':
+	file = open('cookie_cats.txt', 'r')
 
 def simple_stat(ab_column, resulting_parameter):
 	ab_par = df.groupby(ab_column)[resulting_parameter].sum()/df.groupby(ab_column)[resulting_parameter].count()*100
