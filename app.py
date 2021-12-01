@@ -5,7 +5,10 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 
-file = st.file_uploader("Please upload an image file or...", type=["csv", "txt"])
+file_selection = st.radio("Please choose csv file OR use demo file", ('demo','file'))
+
+if file_selection == 'file':
+	st.file_uploader("Please upload an image file or...", type=["csv", "txt"])
 
 def simple_stat(ab_column, resulting_parameter):
 	ab_par = df.groupby(ab_column)[resulting_parameter].sum()/df.groupby(ab_column)[resulting_parameter].count()*100
